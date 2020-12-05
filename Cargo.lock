@@ -2,8 +2,8 @@
 # It is not intended for manual editing.
 [[package]]
 name = "program"
-version = "1.0.0"
-source = "git+https://git.dragonma.us/dragonmaus/program.rs#5104eaac0fd727385460fe4a4177f06df84c9bf4"
+version = "1.1.0"
+source = "git+https://git.dragonma.us/dragonmaus/program.rs#0b209ce9062e38d1b50191259394cab83619cd3b"
 
 [[package]]
 name = "ratio"
