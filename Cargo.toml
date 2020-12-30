@@ -10,4 +10,4 @@ categories = ["command-line-utilities"]
 publish = false
 
 [dependencies]
-program = { git = "https://git.dragonma.us/dragonmaus/program.rs", version = "1" }
+program = { git = "https://git.dragonma.us/dragonmaus/program.rs", version = "2" }

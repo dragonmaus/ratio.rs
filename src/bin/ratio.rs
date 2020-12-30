@@ -2,15 +2,15 @@ use std::io;
 
 program::main!("ratio");
 
-fn usage_line() -> String {
-    format!("Usage: {} x y [z...]", program::name("ratio"))
+fn usage_line(program_name: &str) -> String {
+    format!("Usage: {} x y [z...]", program_name)
 }
 
-fn program() -> program::Result {
+fn program(name: &str) -> program::Result {
     let args = program::args().split_off(1);
 
     if args.len() < 2 {
-        eprintln!("{}", usage_line());
+        eprintln!("{}", usage_line(name));
         return Ok(1);
     }
 
