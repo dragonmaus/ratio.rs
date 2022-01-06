@@ -1,0 +1,13 @@
+[package]
+name = "ratio"
+version = "1.0.0"
+authors = ["David Wildasin <dragonmaus@posteo.net>"]
+edition = "2018"
+description = "Calculate the ratio of two numbers"
+repository = "https://git.dragonma.us/rust/ratio"
+license = "BSD-3-Clause-Clear"
+categories = ["command-line-utilities"]
+publish = false
+
+[dependencies]
+program = { git = "git://git.dragonma.us/rust/program" }
