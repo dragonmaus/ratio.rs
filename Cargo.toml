@@ -9,5 +9,5 @@ license = "BSD-3-Clause-Clear"
 categories = ["command-line-utilities"]
 publish = false
 
-[dependencies]
-program = { git = "git://git.dragonma.us/rust/program" }
+[dependencies.program]
+git = "git://git.dragonma.us/rust/program"
