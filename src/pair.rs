@@ -1,10 +1,14 @@
 use crate::ratio::Ratio;
-use std::fmt;
+use std::{fmt, str::FromStr};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct Pair(pub u64, pub u64);
 
 impl Pair {
+    pub fn parse(x: &str, y: &str) -> Result<Self, <u64 as FromStr>::Err> {
+        Ok(Self(x.trim().parse()?, y.trim().parse()?))
+    }
+
     pub fn x(&self) -> u64 {
         self.0
     }

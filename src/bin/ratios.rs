@@ -15,9 +15,7 @@ fn program(name: &str) -> program::Result {
         return Ok(1);
     }
 
-    let xmax = args[0].trim().parse::<u64>()?;
-    let ymax = args[1].trim().parse::<u64>()?;
-
+    let max = Pair::parse(&args[0], &args[1])?;
     // TODO: put this in a config file?
     let want = vec![
         Pair(1, 2),
@@ -33,8 +31,8 @@ fn program(name: &str) -> program::Result {
     ];
     let mut best = HashMap::new();
 
-    for x in 2..=xmax {
-        for y in 2..=ymax {
+    for x in 1..=max.x() {
+        for y in 1..=max.y() {
             let r = Ratio::new(x, y);
             if want.contains(&r.into()) {
                 best.insert(r.as_pair(), r);
@@ -43,12 +41,22 @@ fn program(name: &str) -> program::Result {
     }
 
     for p in &want {
-        let r = best[p];
-        let f: f64 = r.into();
-        let mut s = f.to_string();
-        s.truncate(10);
-        println!("{} ({}) => {}", s, r, r.original());
+        if let Some(r) = best.get(p) {
+            println!(
+                "{} ({}) => {} [{}]",
+                r.as_decimal_string(),
+                r,
+                r.original(),
+                percent_string(max, r.original())
+            );
+        }
     }
 
     Ok(0)
+}
+
+fn percent_string(old: Pair, new: Pair) -> String {
+    let old = (old.x() * old.y()) as f64;
+    let new = (new.x() * new.y()) as f64;
+    format!("{:>2}%", (new / old * 100.0).round())
 }

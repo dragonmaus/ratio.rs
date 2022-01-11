@@ -9,7 +9,7 @@ source = "git+git://git.dragonma.us/rust/program#5d19738e79e77030b59035409c7e359
 
 [[package]]
 name = "ratio"
-version = "1.0.0"
+version = "2.0.0"
 dependencies = [
  "program",
 ]

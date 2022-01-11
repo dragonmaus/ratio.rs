@@ -14,17 +14,9 @@ fn program(name: &str) -> program::Result {
         return Ok(1);
     }
 
-    let x = args[0].trim().parse::<u64>()?;
-    let y = args[1].trim().parse::<u64>()?;
-    let ratio = Ratio::new(x, y);
-    let number = {
-        let f: f64 = ratio.into();
-        let mut s = f.to_string();
-        s.truncate(10);
-        s
-    };
+    let ratio = Ratio::parse(&args[0], &args[1])?;
 
-    println!("{} ({})", number, ratio);
+    println!("{} ({})", ratio.as_decimal_string(), ratio);
 
     Ok(0)
 }

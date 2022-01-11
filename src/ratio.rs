@@ -1,5 +1,5 @@
 use crate::pair::Pair;
-use std::fmt;
+use std::{fmt, str::FromStr};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct Ratio {
@@ -17,6 +17,23 @@ impl Ratio {
             this: Pair(rx, ry),
             orig: Pair(x, y),
         }
+    }
+
+    pub fn parse(x: &str, y: &str) -> Result<Self, <u64 as FromStr>::Err> {
+        Ok(Pair::parse(x, y)?.into())
+    }
+
+    pub fn as_decimal_string(&self) -> String {
+        let f: f64 = (*self).into();
+        let mut s = f.to_string();
+        if s.len() > 10 {
+            if f >= 100000000.0 {
+                s = f.trunc().to_string();
+            } else {
+                s.truncate(10);
+            }
+        }
+        s
     }
 
     pub fn as_pair(&self) -> Pair {
