@@ -4,12 +4,12 @@ version = 3
 
 [[package]]
 name = "program"
-version = "1.0.0"
-source = "git+git://git.dragonma.us/rust/program#e228b3c69ce9ed768a595e900bb8a270fa271e8f"
+version = "1.0.1"
+source = "git+git://git.dragonma.us/rust/program#45a5dab00f2020bc8ea22af230bd3339ec0e1aef"
 
 [[package]]
 name = "ratio"
-version = "2.0.0"
+version = "2.0.2"
 dependencies = [
  "program",
 ]
