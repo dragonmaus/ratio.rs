@@ -17,6 +17,7 @@ fn program(name: &str) -> program::Result {
 
     let max = Pair::parse(&args[0], &args[1])?;
     // TODO: put this in a config file?
+    // TODO: option 2: command-line arguments
     let want = vec![
         Pair(6, 13),
         Pair(1, 2),
