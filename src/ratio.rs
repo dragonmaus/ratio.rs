@@ -46,7 +46,7 @@ impl Ratio {
 }
 
 fn gcd(x: u64, y: u64) -> u64 {
-    let mut gcd = *(vec![x, y].iter().min().unwrap_or(&1));
+    let mut gcd = *([x, y].iter().min().unwrap_or(&1));
 
     while gcd > 1 {
         if x % gcd == 0 && y % gcd == 0 {
